@@ -30,7 +30,7 @@ int main(){
 		// No need to change the following line- if done correctly then Putty Should display the correct message
 		UART_printf("UART Initialization complete");               // Instructor given function to print string
 		Newline();																								 // Instructor given function to go to new line
-		
+		Newline(); //test line
 		while(1){
 			// The code for Part 1 is here
 		}
