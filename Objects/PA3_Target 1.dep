@@ -1,0 +1,23 @@
+Dependencies for Project 'PA3', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x5F762F5D)(-c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F75EE)
+I (PLL.h)(0x5E7BD54A)
+I (UART.h)(0x5F73CAE3)
+I (Sound.h)(0x5F73E71D)
+I (Switch.h)(0x5235BFDA)
+I (tm4c123gh6pm.h)(0x5E7BD54A)
+F (.\PLL.c)(0x5F73BF7F)(-c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM4-o .\objects\pll.o --omf_browse .\objects\pll.crf --depend .\objects\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F75EE)
+I (PLL.h)(0x5E7BD54A)
+I (tm4c123gh6pm.h)(0x5E7BD54A)
+F (.\startup.s)(0x5E7BD54A)(--cpu Cortex-M4 --li --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 527" --pd "ARMCM4 SETA 1"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
+F (.\Sound.c)(0x5F73E9E6)(-c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM4-o .\objects\sound.o --omf_browse .\objects\sound.crf --depend .\objects\sound.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F75EE)
+I (tm4c123gh6pm.h)(0x5E7BD54A)
+F (.\Switch.c)(0x5F73E2A4)(-c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM4-o .\objects\switch.o --omf_browse .\objects\switch.crf --depend .\objects\switch.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F75EE)
+I (tm4c123gh6pm.h)(0x5E7BD54A)
+F (.\UART.c)(0x5F73CF13)(-c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\Device\ARM\ARMCM4\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM4-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F75EE)
+I (UART.h)(0x5F73CAE3)
+I (tm4c123gh6pm.h)(0x5E7BD54A)
