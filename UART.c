@@ -37,8 +37,8 @@ void UART_Init(void){
   UART0_CTL_R &= ~UART_CTL_UARTEN;      							// disable UART
 		
 	// IBRD and FBRD is very critical, follwoing is set for 115200 baud and PLL set at 80M, you should modify for your configuration
-  UART0_IBRD_R = 43;                    							// IBRD = int(80,000,000 / (16 * 115,200)) = int(43.4028)=43
-  UART0_FBRD_R = 25;                     							// FBRD = int(0.4028 * 64+0.5) = 26
+  UART0_IBRD_R = 325;                    							// IBRD = int(50,000,000 / (16 * 9600)) = int(325.52)=325
+  UART0_FBRD_R = 33;                     							// FBRD = int(0.5208 * 64) = 33
   
 	// 8 bit word length (no parity bits, one stop bit, FIFOs)
   UART0_LCRH_R = (UART_LCRH_WLEN_8|UART_LCRH_FEN);
@@ -62,13 +62,15 @@ void UART_Init(void){
 // Should block until the user presses a key and then returns that value
 // Returns a newline until it has been correctly implemented
 char UART_GetChar(void){
-  char retchar = '\n';
+  char retchar;
 	
 	// Add your code for following functions
 	  // Wait until the Receive FIFO empty flag (RXFE) is 0
 		// This means data has been received and is available
+	while((UART0_FR_R & UART_FR_RXFE) != 0);
 	
 	// Put the result from data register to retchar
+	retchar = (char)(UART0_DR_R & 0xFF);
 	
 	// Return
 	return retchar;
@@ -85,21 +87,21 @@ char UART_GetChar(void){
 uint32_t UART_inUDec(void){
 	uint32_t number=0, length=0;
 	char character;
-  character = UART_InChar();
+  character = UART_GetChar();
   
-	while(){ // accepts until <enter - i.e. CR> is typed
+	while(character != CR) { // accepts until <enter - i.e. CR> is typed
 		
 		// The next line checks that the input is a digit, 0-9.
 		// If the character is not 0-9, it is ignored and not echoed
     if((character>='0') && (character<='9')) {
-      number =    										// this line overflows if above 4294967295
+      number = (number * 10) + character - 48;  // this line overflows if above 4294967295
       length++;
       UART_OutChar(character);       // Instructor defined function, no change
     }
 		// Else If the input is a backspace, then the return number is
 		// changed and a backspace is outputted to the screen
     else if((character==BS) && length){
-      number /= ;												// write your logic here
+      number /= 10;												// write your logic here
       length--;
       UART_OutChar(character);					// Instructor defined function, no change
     }
@@ -118,9 +120,12 @@ uint32_t UART_inUDec(void){
 void UART_OutUDec(uint32_t n){
 // This function uses recursion to convert decimal number
 //   of unspecified length as an ASCII string
-
-
+	if (n >=10) {
+		UART_OutUDec(n/10);
+		n = n % 10;
+	}
 /* convert n to ASCII and sent */
+	UART_OutChar(n + 48);
 }
 
 // you can add more functions below
